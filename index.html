@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieMate - Streaming Film</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="age-modal">
+        <div class="modal-content">
+            <h2>Selamat Datang di MovieMate <br> Zona Aman Untuk Semua Penonton</h2>
+            <p>Masukkan usia Anda untuk melanjutkan:</p>
+            <input type="number" id="user-age-input" placeholder="Masukkan Usia..." min="1" max="120" oninput="if(this.value > 120) this.value = 120; if(this.value < 1) this.value = '';">
+            <br><br>
+            <button class="btn btn-primary" onclick="app.setUserAge()">Masuk</button>
+        </div>
+    </div>
+
+    <header>
+        <h1>MovieMate</h1>
+        <div id="user-info">Belum login</div>
+    </header>
+
+    <div class="container">
+        
+        <div id="home-page" class="hidden">
+            <h3>Film Pilihan</h3>
+            <input type="text" id="search-input" placeholder="Cari film..." value="Avengers" style="padding:10px;">
+            <button class="btn btn-primary" onclick="app.searchMovies()">Cari</button>
+            
+            <div id="movie-list">
+                <p>Memuat film...</p>
+            </div>
+        </div>
+
+        <div id="detail-view">
+            <div class="detail-flex">
+                <img id="detail-img" src="" alt="Poster" style="max-width: 300px;">
+                <div style="flex: 1;">
+                    <h2 id="detail-title">Judul Film</h2>
+                    <p><strong>Tahun:</strong> <span id="detail-year"></span></p>
+                    <p><strong>Genre:</strong> <span id="detail-genre"></span></p>
+                    <p><strong>Rating Usia (MPAA):</strong> <span id="detail-rating"></span></p>
+                    <p id="detail-desc">Deskripsi...</p>
+                    
+                    <br>
+                    <button class="btn btn-primary" onclick="app.playCurrentMovie()">TONTON FILM</button>
+                    <button class="btn btn-sec" onclick="app.goHome()">KEMBALI</button>
+                    
+                    <div class="console-log" id="player-console">
+                        [Status Player]: Menunggu pemutaran...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
